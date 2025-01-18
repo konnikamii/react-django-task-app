@@ -89,7 +89,7 @@ mkdir react_django_task_app
 #### 2. Clone the repository in the folder of your choice:
 
 ```bash
-git clone https://github.com/konnikamii/react_django_task_app.git .
+git clone https://github.com/konnikamii/react-django-task-app.git .
 ```
 
 ## Backend Setup
