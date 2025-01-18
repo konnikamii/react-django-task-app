@@ -1,14 +1,14 @@
 # React / Django Task Manager App
 
-<p align="center" style="display: flex; justify-content: center; align-items: center;">
-  <a href="https://www.djangoproject.com/" rel="noopener noreferrer" target="_blank">
-    <img src="https://www.fullstackpython.com/img/logos/django.png" width="200" alt="Django Logo">
+<p align="center" style="display: flex; justify-content: center; align-items: center; background: green">
+  <a href="https://react.dev/" rel="noopener noreferrer" target="_blank" style="background: transparent">
+    <img src="https://dac.digital/wp-content/uploads/2023/11/react-logo-optimized.png" height="120" alt="React Logo">
   </a>
   <a style="margin: 0px 10px 0px 20px ">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/000/363/962/small_2x/1_-_1_-_Plus.jpg" width="40" alt="plus">
+    <img src="https://lh4.googleusercontent.com/proxy/HEI87D1AFlNZgm7mlGYac67A98FXjWHakJdp1SJSC_AuHYMM6yD5TY-EYtwGPox2IvwdWQVYoIhb7wKYj5TQ_FkuvX5rhFoMtYizjCuv" width="40" alt="plus">
   </a>
-  <a href="https://react.dev/" rel="noopener noreferrer" target="_blank">
-    <img src="https://miro.medium.com/v2/resize:fit:1200/1*5PxGgx_aOWpTkul_D3nnbw.png" height="120" alt="React Logo">
+  <a href="https://www.djangoproject.com/" rel="noopener noreferrer" target="_blank">
+    <img src="https://1000logos.net/wp-content/uploads/2020/08/Django-Logo.png" width="200" alt="Django Logo">
   </a>
 </p>
 
@@ -36,7 +36,7 @@
     </td>
     <td>
       <a href="https://tagmanager.google.com/" rel="noopener noreferrer" target="_blank">
-        <img src="https://cocosolution.com/cms/uploads/o_1ebo7h0gt11ee3i7j764evn52a.jpg" height="50" alt="GTM Logo">
+        <img src="https://img.icons8.com/color/512/google-tag-manager.png" height="50" alt="GTM Logo">
       </a>
       <a href="https://marketingplatform.google.com/about/analytics/" rel="noopener noreferrer" target="_blank">
         <img src="https://miro.medium.com/v2/resize:fit:1400/1*-ExxDAPl4rciaENKd8QSBw.png" height="60" alt="GA4 Logo">
@@ -83,7 +83,7 @@ Ensure you have the following installed on your machine:
 #### 1. Make a folder where you will store the code:
 
 ```bash
-mkdir react_django_task_app
+mkdir react-django-task-app
 ```
 
 #### 2. Clone the repository in the folder of your choice:
