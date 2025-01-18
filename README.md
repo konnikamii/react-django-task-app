@@ -1,10 +1,10 @@
 # React / Django Task Manager App
 
-<p align="center" style="display: flex; justify-content: center; align-items: center; background: green">
-  <a href="https://react.dev/" rel="noopener noreferrer" target="_blank" style="background: transparent">
+<p align="center" style="display: flex; justify-content: center; align-items: center;">
+  <a href="https://react.dev/" rel="noopener noreferrer" target="_blank">
     <img src="https://dac.digital/wp-content/uploads/2023/11/react-logo-optimized.png" height="120" alt="React Logo">
   </a>
-  <a style="margin: 0px 10px 0px 20px ">
+  <a href="https://github.com/konnikamii/react-django-task-app" rel="noopener noreferrer" target="_blank" style="margin: 0px 10px 0px 20px ">
     <img src="https://lh4.googleusercontent.com/proxy/HEI87D1AFlNZgm7mlGYac67A98FXjWHakJdp1SJSC_AuHYMM6yD5TY-EYtwGPox2IvwdWQVYoIhb7wKYj5TQ_FkuvX5rhFoMtYizjCuv" width="40" alt="plus">
   </a>
   <a href="https://www.djangoproject.com/" rel="noopener noreferrer" target="_blank">
@@ -106,19 +106,25 @@ cd backend
 cp .env.example .env
 ```
 
-#### 3. Install PHP dependencies using Composer: (only if running locally)
+#### 3. Make new directories for the named volumes:
+
+```bash
+mkdir venv
+```
+
+#### 4. Install PHP dependencies using Composer: (only if running locally)
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 4. Run database migrations: (only if running locally)
+#### 5. Run database migrations: (only if running locally)
 
 ```bash
 python ./website/manage.py migrate
 ```
 
-#### 5. Start the Django development server: (only if running locally)
+#### 6. Start the Django development server: (only if running locally)
 
 ```bash
 python ./website/manage.py runserver
@@ -138,13 +144,22 @@ cd frontend
 cp .env.example .env.local
 ```
 
-#### 3. Install Node.js dependencies using npm: (only if running locally)
+#### 3. Make new directories for the named volumes:
+
+```bash
+mkdir node_modules
+mkdir logs
+mkdir dist
+mkdir dist-server
+```
+
+#### 4. Install Node.js dependencies using npm: (only if running locally)
 
 ```bash
 npm install
 ```
 
-#### 4. Start the Vite development server: (only if running locally)
+#### 5. Start the Vite development server: (only if running locally)
 
 ```bash
 npm run dev
@@ -161,7 +176,7 @@ cd ..
 #### 2. Build and start the Docker containers:
 
 ```bash
-docker compose up --project-name "react-django-task-app" --build
+docker compose -p "react-django-task-app" up --build
 ```
 
 ### Access the application:

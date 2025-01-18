@@ -27,10 +27,10 @@ RUN npm install
 # Copy project files
 COPY . .
 
-# Expose port and start the application
-EXPOSE 3000 24678 
-EXPOSE 80
-EXPOSE 443
+# Convert the server to .js before running
+RUN tsc --project tsconfig.server.json
 
-CMD ["npm", "run", "dev", "--host"]
-# CMD ["npm", "run", "dev", "--host"]
+# Expose port and start the application
+EXPOSE 3000 24678  
+
+CMD ["npm", "run", "dev", "--host"] 
