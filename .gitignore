@@ -1,0 +1,27 @@
+#Envs
+*.env
+*.env.development
+*.env.production
+*.env.local
+*.env.development.local
+*.env.production.local
+
+
+# Backend 
+venv
+__pycache__ 
+
+
+# Frontend
+node_modules
+dist
+dist-ssr
+dist-server
+
+logs
+*.log
+
+vite.config.*.timestamp-*
+
+.vscode
+ 
