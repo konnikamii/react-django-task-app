@@ -91,9 +91,9 @@ function Contact() {
       formData.append("message", values.message);
       axios
         .post("/api/contact/", formData)
-        .then((response: AxiosResponse<string>) => {
+        .then((response: AxiosResponse<{ detail: string }>) => {
           console.log(response.data);
-          messageApi.success("Success! Your message has been sent.", 3);
+          messageApi.success(response.data.detail, 3);
           setValues(defaultValues);
           setErrors(defaultErrors);
           setTimeout(() => {

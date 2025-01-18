@@ -14,6 +14,12 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+
 class UserTasksSerializer(serializers.ModelSerializer):
     tasks = TaskSerializer(many=True, read_only=True)
 
@@ -85,13 +91,6 @@ class PasswordChangeSerializer(serializers.Serializer):
 
 
 # Request Data Serializers
-class ContactSerializer(serializers.Serializer):
-    name = serializers.CharField(required=True)
-    email = serializers.EmailField(required=True)
-    subject = serializers.CharField(required=True)
-    message = serializers.CharField(required=True)
-
-
 class UserTypeSerializer(serializers.Serializer):
     type = serializers.ChoiceField(required=True, choices=[
                                    'default', 'user_tasks'])

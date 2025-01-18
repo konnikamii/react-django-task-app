@@ -81,6 +81,7 @@ def auth(req: HttpRequest):
 def contact(req):
     contact_serializer = ContactSerializer(data=req.data)
     if contact_serializer.is_valid():
+        contact_serializer.save()
         name = contact_serializer.data.get('name')
         email = contact_serializer.data.get('email')
         subject = contact_serializer.data.get('subject')
@@ -96,7 +97,7 @@ def contact(req):
             return Response({'detail': 'Email sent successfully.'}, status=status.HTTP_200_OK)
         except Exception as e:
             print(str(e))
-            return Response({'detail': 'Could not connect to the email server.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'detail': 'Message saved successfully.'}, status=status.HTTP_200_OK)
     return Response(contact_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
