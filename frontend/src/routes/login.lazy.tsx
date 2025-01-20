@@ -125,19 +125,9 @@ function Login() {
           className={`flex flex-col ${dims.plus550 ? "w-[430px]" : "w-auto"} px-10 py-4 rounded-xl border shadow-lg transition-all duration-300 ${isLight ? "border-gray-400 bg-gray-200/60 shadow-gray-500 hover:shadow-gray-400" : "border-gray-600 bg-white/45 shadow-gray-500/40"} backdrop-blur-lg relative overflow-hidden`}
         >
           <div className="w-full flex flex-col items-center py-6 font-bold text-3xl">
-            Logins
+            Login
           </div>
           <div className="flex flex-col gap-3 mb-6">
-            <button
-              className={btnClassPrimaryDarkBlue + " w-fit self-end"}
-              onClick={(e) => {
-                rippleAnimation(e, isLight, 700);
-                setValues({ username: "konnik", password: "asd" });
-                setErrors(defaultErrors);
-              }}
-            >
-              Demo
-            </button>
             <div className="relative size-full">
               <div
                 className={`font-semibold mb-2 ${dims.plus1440 ? "text-lg" : "text-base"}`}

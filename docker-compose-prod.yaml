@@ -1,37 +1,29 @@
-name: ${APP_NAME}
+name: ${APP_NAME}-prod
 
 services:
   frontend:
-    image: ${APP_NAME}/frontend:latest
-    container_name: frontend
+    image: ${APP_NAME}-prod/frontend:latest
+    container_name: frontend-prod
     restart: unless-stopped
     tty: true
     build:
       context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-      # - 7000:7000
-      - 24678:24678
-    volumes:
-      - ./frontend:/app:ro
-      - frontend-node-modules:/app/node_modules
-      - frontend-dist-server:/app/dist-server
-      - frontend-dist:/app/dist
-      - frontend-logs:/app/logs
+      dockerfile: Dockerfile.prod
+    ports: 
+      - 7000:7000  
     env_file: 
       - ./frontend/.env
     environment:
       - RUN_ON_DOCKER=on
       - BACKEND_HOST=backend
-      - VITE_MODE=development
+      - VITE_MODE=production
 
     networks:
       - app-network
 
   backend:
-    image: ${APP_NAME}/backend:latest
-    container_name: backend
+    image: ${APP_NAME}-prod/backend:latest
+    container_name: backend-prod
     restart: unless-stopped
     tty: true
     depends_on:
@@ -40,10 +32,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
-    volumes:
-      - ./backend/:/usr/src/app:ro
-      - backend-venv:/usr/src/app/venv
+      - 8000:8000 
     env_file: 
       - ./backend/.env
     environment:
@@ -56,7 +45,7 @@ services:
 
   postgres:
     image: postgres
-    container_name: postgres
+    container_name: postgres-prod
 
     restart: unless-stopped
 
@@ -74,7 +63,7 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-    container_name: mailhog
+    container_name: mailhog-prod
     restart: unless-stopped
     ports:
       - 8025:8025
@@ -83,12 +72,7 @@ services:
       - app-network
 
 volumes:
-  postgres-db:
-  backend-venv:
-  frontend-node-modules:
-  frontend-dist-server:
-  frontend-dist:
-  frontend-logs:
+  postgres-db: 
 
 networks:
   app-network:

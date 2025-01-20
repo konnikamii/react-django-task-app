@@ -5,15 +5,13 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./main.css";
 
 import { routeTree } from "./routeTree.gen";
-// import NotFoundFC from "./components/app/NotFound";
 import { StrictMode } from "react";
 import NotFoundFC from "./components/app/NotFound";
 import ErrorFC from "./components/app/Error";
-// import ErrorFC from "./components/app/Error";
- 
+
 const MODE = import.meta.env.VITE_MODE?.trim();
 const PROD_DEBUG = import.meta.env.VITE_PROD_DEBUG?.trim();
-const isProd = MODE === "production"   
+const isProd = MODE === "production";
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -76,9 +74,7 @@ if (rootElement && !rootElement.innerHTML) {
   const app = (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-      {!isProd ? (
-        <ReactQueryDevtools initialIsOpen={false} />
-      ) : null}
+      {!isProd ? <ReactQueryDevtools initialIsOpen={false} /> : null}
     </QueryClientProvider>
   );
   root.render(!isProd ? <StrictMode>{app}</StrictMode> : app);

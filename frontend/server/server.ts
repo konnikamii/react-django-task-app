@@ -31,7 +31,7 @@ import FormData from "form-data";
 const upload = multer();
 
 // ----------------- Config ----------------- //
-dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env" });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const root = path.resolve(__dirname, "../../");
@@ -235,7 +235,7 @@ app.post("/api/contact/", upload.none(), (req, res) => {
       if (error.response) {
         res.status(error.response.status).send(error.response.data);
       } else {
-        res.status(502).send("No response from the server");
+        res.status(502).send({ detail: "No response from the server" });
       }
     });
 });
@@ -468,7 +468,7 @@ if (isProd) {
         port: 3000,
         strictPort: true,
         watch: {
-          usePolling: RUN_ON_DOCKER && RUN_ON_DOCKER === "on" ? true : false,
+          usePolling: RUN_ON_DOCKER === "on" ? true : false,
         },
         // HMR config
         // hmr: {

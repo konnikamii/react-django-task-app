@@ -103,7 +103,8 @@ function Contact() {
         .catch((error: AxiosError<Record<string, string>>) => {
           const res = error.response;
           if (res) {
-            messageApi.error("Validation Error");
+            console.log(res);
+            messageApi.error(res.data.detail ?? "Validation error");
             const newErr = res.data;
             if (newErr.name) {
               setErrors((prev) => ({ ...prev, name: newErr.name }));

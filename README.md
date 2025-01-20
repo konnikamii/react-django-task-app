@@ -92,6 +92,12 @@ mkdir react-django-task-app
 git clone https://github.com/konnikamii/react-django-task-app.git .
 ```
 
+#### 3. Copy the example environment file and configure it:
+
+```bash
+cp .env.example .env
+```
+
 ## Backend Setup
 
 #### 1. Navigate to the backend directory:
@@ -141,7 +147,7 @@ cd frontend
 #### 2. Copy the example environment file and configure it:
 
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 #### 3. Make new directories for the named volumes:
@@ -176,7 +182,7 @@ cd ..
 #### 2. Build and start the Docker containers:
 
 ```bash
-docker compose -p "react-django-task-app" up --build
+docker compose up --build
 ```
 
 ### Access the application:
@@ -202,6 +208,18 @@ Try creating an account and logging in.
 By default, the copied `.env` files should work when you run `docker compose up`.  
 However, if any errors occur, ensure the correct **hostnames**, **ports**, and **credentials** are specified for **PostgreSQL** and **Mailhog**.  
 Also, check the frontend and backend **hostnames** and **ports**.
+
+If you want to start the **production build** run the following command:
+
+```bash
+docker compose -f docker-compose-prod.yaml up --build
+```
+
+To destroy containers use:
+
+```bash
+docker compose -f docker-compose-prod.yaml down
+```
 
 ---
 
@@ -265,11 +283,19 @@ pg_ctl stop -D /var/lib/postgresql/[version]/main  # stop the PostgreSQL process
 #### Helpfull commands for Docker
  
 ```bash
-docker compose --project-name "react-django-task-app" up --build  # builds images and starts the containers
-docker compose --project-name "react-django-task-app" down  # destroys the containers
-docker compose --project-name "react-django-task-app" config  # troubleshoot the setup
-docker logs <container_name_or_id> # check logs of container
-docker exec -it <container_name_or_id> /bin/sh # enter container using shell
-docker exec -it <container_name_or_id> bash # enter container using bash (if installed)
+docker compose up                                                 # builds images and starts the containers (dafaults to: ./docker-compose.yaml ./.env)
+docker compose down                                               # removes containers
+docker compose config                                             # troubleshoots the setup
+
+docker compose up --build                                         # forces image rebuilds
+docker compose --project-name "my-app" up                         # flag for setting project name (if not specified)
+docker compose -p "my-app" up                                     # shorthand for project name
+docker compose -f <filename.yaml> up                              # runs a particular 'docker-compose.yaml' file
+  
+docker ps                                                         # lists all containers
+docker logs <container_name_or_id>                                # check logs of container
+docker stats                                                      # tracks active container resource utilization
+
+docker exec -it <container_name_or_id> /bin/sh                    # enter container using shell
+docker exec -it <container_name_or_id> bash                       # enter container using bash (if installed)
 ```
- 
