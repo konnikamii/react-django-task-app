@@ -112,7 +112,7 @@ cp .env.example .env
 mkdir venv
 ```
 
-#### 4. Install PHP dependencies using Composer: (only if running locally)
+#### 4. Install Python dependencies using pip: (only if running locally)
 
 ```bash
 pip install -r requirements.txt
